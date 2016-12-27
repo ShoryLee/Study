@@ -1,16 +1,10 @@
 # Study
 Some code pieces
 
-# 搜索框提示功能
-<!DOCTYPE html>
-<html>
-<head>
-	<title>测试</title>
-	<meta charset="utf-8">
-</head>
-<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function(){
+# 搜索框输入内容	
+实时显示
+
+		$(document).ready(function(){
 		var searchId = "#search-me";
 		var showText = "#show";
 		//中文判断
@@ -26,31 +20,24 @@ Some code pieces
         lastTime = event.timeStamp;
         //将操作都放置于超时函数内				
         setTimeout(function(){
-					if(lastTime - event.timeStamp == 0){
-          //进行汉字判断
+			if(lastTime - event.timeStamp == 0){
+          	//进行汉字判断
             if (myReg.test(searchValue)){
               //如果是汉字，当键盘按下空格32或删除键8的时候，再执行
-              if(event.which == 8 || event.which == 32){
-								$(showText).html(searchValue);
-								// alert (searchValue);
-								}
-							} else {
-              //英文，直接执行
-              $(showText).html(searchValue);
-						    	// alert (searchValue);
-						    	}
-						}
-					}, 300);  //超时300ms					
+            	if(event.which == 8 || event.which == 32){
+					$(showText).html(searchValue);
+					// alert (searchValue);
+					}
 				} else {
-        //此处用于清空输入，否则显示的文本将会在输入框删除完之后残留最后一个字符
-          $(showText).html('');
+              		//英文，直接执行
+              		$(showText).html(searchValue);
+					// alert (searchValue);
+					}
+				}
+			}, 300);  //超时300ms					
+				} else {
+        			//此处用于清空输入，否则显示的文本将会在输入框删除完之后残留最后一个字符
+          			$(showText).html('');
 				}
 		  });
 	});
-</script>
-<body>
-<label for="search">SEARCH:</label>
-<input type="text" name="search" id="search-me"><br><br>
-<p>SHOW:<span id="show" style="font-size:200%;"></span></p>
-</body>
-</html>
