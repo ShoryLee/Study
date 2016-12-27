@@ -1,10 +1,9 @@
-# Study
-Some code pieces
+# 搜索框输入内容实时显示#		
+##解决chrome浏览器在中文输入未完成状态也实时请求
+##使用timeout超时延迟执行
+##中英文区分处理
 
-# 搜索框输入内容	
-实时显示
-
-		$(document).ready(function(){
+	$(document).ready(function(){
 		var searchId = "#search-me";
 		var showText = "#show";
 		//中文判断
